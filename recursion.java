@@ -4,6 +4,7 @@ import java.lang.*;
 public class recursion{
   public static void main(String[] args){
     System.out.println(sqrt(2.0,.0000001));
+    System.out.println(fib(1));
   }
   /*Recursively find the sqrt using Newton's approximation
    *tolerance is the allowed percent error the squared answer is away from n.
@@ -29,9 +30,9 @@ public class recursion{
    *precondition: n is non-negative
    */
   public static int fib(int n){
-    return Helper2(n, 0, 1, 0);
+    return Helper2(n,0,0,1);
   }
-  private static int Helper2(int target, int x, int y, int current) {
+  private static int Helper2(int target, int current, int x, int y) {
     if (current == target){
       return x;
     }
@@ -40,21 +41,6 @@ public class recursion{
 
 
 
-  /*As Per classwork*/
-  public static ArrayList<Integer> makeAllSums(int n) {
-    ArrayList<Integer> sum = new ArrayList<Integer>();
-    makeAllSumsHelper(n, 0, sum);
-    return sum;
-  }
-  private static void makeAllSumsHelper(int max, Integer partialSum, ArrayList<Integer> sumArray) {
-    if (max == 0) {
-      sumArray.add(partialSum);
-    }
-    if (max > 0) {
-      makeAllSumsHelper(max - 1, partialSum + max, sumArray);
-      makeAllSumsHelper(max - 1, partialSum, sumArray);
-    }
-  }
 
 
 
