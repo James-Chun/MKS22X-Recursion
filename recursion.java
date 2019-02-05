@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.*;
 import java.lang.*;
 
 public class recursion{
   public static void main(String[] args){
-    System.out.println(sqrt(2.0,.0000001));
-    System.out.println(fib(1));
-    System.out.println(makeAllSums(3));
-
+    //System.out.println(sqrt(2.0,.0000001));
+    //System.out.println(fib(1));
+    //System.out.println(makeAllSums(3));
+    System.out.println(makeAllWords(1,26));
   }
   /*Recursively find the sqrt using Newton's approximation
    *tolerance is the allowed percent error the squared answer is away from n.
@@ -59,6 +60,30 @@ public class recursion{
         Helper3(sum, partialSum + max, max - 1);
         Helper3(sum, partialSum, max - 1);
       }
+    }
+
+
+    //February 4, 2018
+    public static List<String> makeAllWords(int lettersLeft, int maxLetter){
+        List<String> words = new ArrayList<String>();
+        String a = "abcdefghijklmnopqrstuvwxyz";
+        if (lettersLeft > 0){
+          for (int i = 0; i < maxLetter; i ++){
+                helper (lettersLeft, a.substring(i, i + 1), words, maxLetter);
+          }
+        }
+        return words;
+    }
+
+
+    public static void helper (int lettersLeft, String ans, List<String> words, int maxLetter){
+        String b = "abcdefghijklmnopqrstuvwxyz";
+        if (lettersLeft > 0){
+            for (int i = 0; i < maxLetter; i ++){
+                helper (lettersLeft - 1, ans+ b.substring(i, i + 1), words, maxLetter);;
+            }
+        }
+        else words.add(ans);
     }
 
 }
