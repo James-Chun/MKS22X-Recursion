@@ -7,7 +7,7 @@ public class recursion{
     //System.out.println(sqrt(2.0,.0000001));
     //System.out.println(fib(1));
     //System.out.println(makeAllSums(3));
-    System.out.println(makeAllWords(1,26));
+    System.out.println(makeAllWords(2,3));
   }
   /*Recursively find the sqrt using Newton's approximation
    *tolerance is the allowed percent error the squared answer is away from n.
@@ -69,7 +69,7 @@ public class recursion{
         String a = "abcdefghijklmnopqrstuvwxyz";
         if (lettersLeft > 0){
           for (int i = 0; i < maxLetter; i ++){
-                helper (lettersLeft, a.substring(i, i + 1), words, maxLetter);
+                helper (lettersLeft-1, a.substring(i, i + 1), words, maxLetter);
           }
         }
         return words;
